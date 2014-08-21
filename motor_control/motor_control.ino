@@ -1,9 +1,9 @@
-#include<Stepper.h>
+#include <Stepper.h>
 
 int pinStart = 4;
 int pinCount = 6;
-int pinDir = 12;
-int pinStep = 13;
+int pinDir = 13;
+int pinStep = 12;
 int oneTurn = 20;
 int pinDirLED1 = 8;
 int pinDirLED2 = 9;
@@ -17,6 +17,8 @@ void setup(){
     pinMode(pinStart + i, OUTPUT);
     digitalWrite(pinStart + i, LOW);
   }
+  
+  
   
   pinMode(pinStep, INPUT);
   pinMode(pinDir, INPUT);
