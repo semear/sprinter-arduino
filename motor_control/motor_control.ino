@@ -1,9 +1,9 @@
 #include <Stepper.h>
 
-int pinStart = 4;
+int pinStart = 22;
 int pinCount = 6;
-int pinDir = 13;
-int pinStep = 12;
+int pinDir = 52;
+int pinStep = 53;
 int oneTurn = 20;
 int pinDirLED1 = 8;
 int pinDirLED2 = 9;
@@ -20,7 +20,7 @@ void setup(){
   
   
   
-  pinMode(pinStep, INPUT);
+  pinMode(pinStep, INPUT                                                                                                                                                                                                                                                                                                                                        );
   pinMode(pinDir, INPUT);
   
 }
@@ -28,6 +28,13 @@ void setup(){
 void loop(){
   motor.setSpeed(60);
   boolean wasSigOn = false;
+  
+  
+  while(true){
+    delay(500);
+    motor.step(1);
+  }
+  
   while(true){
     int sig = digitalRead(pinStep);
     int turn = (digitalRead(pinDir) == HIGH) ? 1 : -1;
