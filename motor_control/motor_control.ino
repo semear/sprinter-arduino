@@ -5,8 +5,7 @@ int pinCount = 6;
 int pinDir = 52;
 int pinStep = 53;
 int oneTurn = 20;
-int pinDirLED1 = 8;
-int pinDirLED2 = 9;
+int pinDirLED = 50;
 
 Stepper motor(oneTurn, pinStart, pinStart + 1, pinStart + 2, pinStart + 3);
 
@@ -18,22 +17,18 @@ void setup(){
     digitalWrite(pinStart + i, LOW);
   }
   
-  
-  
-  pinMode(pinStep, INPUT                                                                                                                                                                                                                                                                                                                                        );
   pinMode(pinDir, INPUT);
+  pinMode(pinStep, INPUT);
+
+  
+  pinMode(pinDirLED, OUTPUT);
+  digitalWrite(pinDirLED, HIGH);
   
 }
 
 void loop(){
   motor.setSpeed(60);
   boolean wasSigOn = false;
-  
-  
-  while(true){
-    delay(500);
-    motor.step(1);
-  }
   
   while(true){
     int sig = digitalRead(pinStep);
@@ -52,11 +47,9 @@ void loop(){
     }
     
     if(turn > 0){
-      digitalWrite(pinDirLED1, HIGH);
-      digitalWrite(pinDirLED2, LOW);
+      digitalWrite(pinDirLED, HIGH);
     }else{
-      digitalWrite(pinDirLED1, LOW);
-      digitalWrite(pinDirLED2, HIGH);
+      digitalWrite(pinDirLED, LOW);
     }
     
     if(!doStep){
