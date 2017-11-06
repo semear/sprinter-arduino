@@ -1,2 +1,2 @@
 SEMEAR Projetos
-Sprinter - Motor Control
+Sprinter - Config files for our 3D printer
